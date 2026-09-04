@@ -18,8 +18,8 @@ jobs:
 
           # wave/generate/triangle
           mkdir -p wave/generate/triangle
-          wget -O wave/generate/triangle/index.js ttps://github.com/sounddrill31/trianglewave-signalgenerate/releases/latest/download/index.js  
-          wget -O wave/generate/triangle/index.wasm ttps://github.com/sounddrill31/trianglewave-signalgenerate/releases/latest/download/index.wasm
+          wget -O wave/generate/triangle/index.js https://github.com/sounddrill31/trianglewave-signalgenerate/releases/latest/download/index.js  
+          wget -O wave/generate/triangle/index.wasm https://github.com/sounddrill31/trianglewave-signalgenerate/releases/latest/download/index.wasm
 
       - name: Push updated version to the repository
         id: github-push
