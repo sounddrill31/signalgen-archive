@@ -1,0 +1,33 @@
+# Controls when the workflow will run
+on:
+  workflow_dispatch: 
+jobs:
+  build:
+    runs-on: ubuntu-slim
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: 'main'
+
+      - name: Set commit author
+        run: |
+          git config --local user.name "SignalGenProjectDummy"
+          git config --local user.email "siggen@testing.com"
+
+      - name: Fetch and prepare files
+        run: |
+          git switch --orphan archive
+          mkdir -p wave/ wave/generate wave/analyze
+
+          # wave/generate/triangle
+          mkdir -p wave/generate/triangle
+          wget -O wave/generate/triangle/index.js ttps://github.com/sounddrill31/trianglewave-signalgenerate/releases/latest/download/index.js  
+          wget -O wave/generate/triangle/index.wasm ttps://github.com/sounddrill31/trianglewave-signalgenerate/releases/latest/download/index.wasm
+
+      - name: Push updated version to the repository
+        id: github-push
+        run: |
+          git add .
+          git commit  --allow-empty -m "Fetch WASM scripts"
+          git push -f -u origin archive
