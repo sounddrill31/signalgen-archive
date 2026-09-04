@@ -1,15 +1,11 @@
-# Controls when the workflow will run
+name: Main
 on:
   workflow_dispatch: 
 jobs:
   build:
     runs-on: ubuntu-slim
-
     steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: 'main'
-
+      - uses: actions/checkout@v6
       - name: Set commit author
         run: |
           git config --local user.name "SignalGenProjectDummy"
