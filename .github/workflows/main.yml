@@ -21,9 +21,16 @@ jobs:
           wget -O wave/generate/triangle/index.js https://github.com/sounddrill31/trianglewave-signalgenerate/releases/latest/download/index.js  
           wget -O wave/generate/triangle/index.wasm https://github.com/sounddrill31/trianglewave-signalgenerate/releases/latest/download/index.wasm
 
+
+          # wave/analyze
+          mkdir -p wave/analyze
+          wget -O wave/analyze/index.js https://github.com/sounddrill31/analysis-signalgenerate/releases/latest/download/index.js  
+          wget -O wave/analyze/index.wasm https://github.com/sounddrill31/analysis-signalgenerate/releases/latest/download/index.wasm
+
       - name: Push updated version to the repository
         id: github-push
         run: |
           git add .
+          
           git commit  --allow-empty -m "Fetch WASM scripts"
           git push -f -u origin archive
