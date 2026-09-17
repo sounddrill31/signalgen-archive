@@ -21,6 +21,11 @@ jobs:
           wget -O wave/generate/triangle/index.js https://github.com/sounddrill31/trianglewave-signalgenerate/releases/latest/download/index.js  
           wget -O wave/generate/triangle/index.wasm https://github.com/sounddrill31/trianglewave-signalgenerate/releases/latest/download/index.wasm
 
+          # wave/generate/sine
+          mkdir -p wave/generate/sine
+          wget -O wave/generate/sine/index.js https://github.com/sounddrill31/sinewave-signalgenerate/releases/latest/download/index.js  
+          wget -O wave/generate/sine/index.wasm https://github.com/sounddrill31/sinewave-signalgenerate/releases/latest/download/index.wasm
+
 
           # wave/analyze
           mkdir -p wave/analyze
